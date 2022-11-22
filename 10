@@ -11,14 +11,14 @@ db.Student.insert({name:"Guru",class:"TE-B",Address:"Camp",age:19,fees:7000})
 
 
 
-db.student.aggregate([{$match : {class : TE}}, {$count : "total no. of students in class TE"}])
+db.Student.aggregate([{$match : {class : "TE-A"}}, {$count : "total no of Students in class TE"}])
 
-db.student.aggregate( [ { $group : { _id : "$class", Max_Age : { $max : " $age "} } } ] )
+db.Student.aggregate( [ { $group : { _id : "$class", Max_Age : { $max : "$age"} } } ] )
 
-db.student.aggregate( [ {$match : { age : {$gt :20 } } } ] )
+db.Student.aggregate( [ {$match : { age : {$gt :20 } } } ] )
 
-db.student.aggregate( [ {$sort : { age : 1 } } ] )
+db.Student.aggregate( [ {$sort : { age : 1 } } ] )
 
-db.student.createIndex( { name :1 } )
-db.student.getIndexes()
+db.Student.createIndex( { name :1 } )
+db.Student.getIndexes()
 
